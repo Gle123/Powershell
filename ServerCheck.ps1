@@ -5,10 +5,10 @@ $Status = (tsm status).ToString()
 
 Write-Output "`n`r$($Status)"    
 if ($Status -ne 'Status: RUNNING'){
-$lookupSMTP = Resolve-DnsName smtp.veteransunited.com
+$lookupSMTP = Resolve-DnsName smtp.dnsname.com
 $smtpaddr = [string]$lookupSMTP.NameHost
 #Send email
-Send-MailMessage -SmtpServer $smtpaddr -Port 25 -From "PCWTableauWarning@veteransunited.com" -To "garrett.le@veteransunited.com","andrea.hardy@veteransunited.com" -Subject "Server Restart Failed" -Body "Tableau Server is down. Restarting server. Please check status." -UseSsl 
+Send-MailMessage -SmtpServer $smtpaddr -Port 25 -From "OUTGOINGEMAIL@x.com" -To "INGOING@x.com" -Subject "Server Restart Failed" -Body "Tableau Server is down. Restarting server. Please check status." -UseSsl 
 Write-Output "Server is not running. Email sent.`n`r" 
 tsm stop
 tsm start
