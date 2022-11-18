@@ -1,11 +1,5 @@
 #*****CHANGE LOG*************************************************************************
-#05-26-2022 changed tableauinstalldirectory to 
-#11-03-2021 changed tableauinstalldirectory to E:\Tableau Server\packages\bin.20204.21.0511.0936\
-#11-13-2020 changed to 20203.20.1018.2303
-#05-12-2020 changed installdirectory from 20194.19.1211.1636 to 20201.20.0326.1623
-#01-30-2019 by Andrea Hardy - Changed path of install directory to \bin.20194.19.1211.1636"
-#Sept  2019 by Andrea Hardy - Script to export data from the workbook view 'CreditKarma' to a csv file on X\Marketing/MRC
-#Changed/updated the install directory path from bin.20191.19.0612.2121 to bin.20192.19.0818.2120
+
 #*****End Change Log*********************************************************************
 
 $tableauinstalldirectory = ""
@@ -22,7 +16,7 @@ ECHO "-------------Removing old files------------"
 Remove-Item -path "\\file.csv*"
 ECHO "-------------Old files removed-directory empty--------"
 
-#Starting a tabcmd session - logging into the server
+#Starting a tabcmd session - logging into the server with no cert check
 ECHO "=====Starting a Tabcmd session and logging into the server"
 .\tabcmd login -s url -u username -p password --no-certcheck
 
