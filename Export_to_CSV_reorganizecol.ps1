@@ -2,7 +2,7 @@
 
 #*****End Change Log*********************************************************************
 
-$tableauinstalldirectory = "E:\Tableau Server\packages\bin.20213.22.0108.1051\"
+$tableauinstalldirectory = "E:\Tableau Server\packages\bin.x\"
 $filename1 = "\\name\of\directory"+".csv"
 $filename2 = "\\name\of\directory"+".csv"
 $localfilename1 = "\\name\of\directory"+".csv"
@@ -16,19 +16,19 @@ ECHO "-------------Removing old files------------"
 Remove-Item -path "\\name\of\directory*.csv*"
 ECHO "-------------Old files removed-directory empty--------"
 
-#Starting a tabcmd session - logging into the server
+#Starting a tabcmd session - logging into the server no cet check
 ECHO "=====Starting a Tabcmd session and logging into the server"
 .\tabcmd login -s https://url.com -u username -p password --no-certcheck
 
-#Exporting specified workbook views to .csv file
+#Exporting specified workbook views to .csv file no cert check
 ECHO "=====Exporting view to .csv file"
 .\tabcmd.exe get "views/#.csv" --filename $localfilename1 --no-certcheck
 .\tabcmd.exe get "views/#.csv" --filename $localfilename2 --no-certcheck
 
 #Importing/reading the new file name, sorting by column in descending order, then exporting the new sorted file to .CSV 
 ECHO "-------------IMPORTING FILE-SORTING by COLUMN-EXPORTING NEW SORTED CSV FILE-------------"
-Import-Csv $localfilename1 | SELECT 'Google Click ID', 'Conversion Name', 'Conversion Time', 'Conversion Value', 'Currency'  | Export-Csv -path $filename1 -NoTypeInformation 
-Import-Csv $localfilename2 | SELECT 'Google Click ID', 'Conversion Name', 'Conversion Time', 'Conversion Value', 'Currency'  | Export-Csv -path $filename2 -NoTypeInformation 
+Import-Csv $localfilename1 | SELECT 'COLUMN A', 'COLUMN B', 'COLUMN C', 'COLUMN D', 'COLUMN E'  | Export-Csv -path $filename1 -NoTypeInformation 
+Import-Csv $localfilename2 | SELECT 'COLUMN A', 'COLUMN B', 'COLUMN C', 'COLUMN D', 'COLUMN E'  | Export-Csv -path $filename2 -NoTypeInformation 
 
 #Removing .csv from local location
 Remove-Item -Path $localfilename1
