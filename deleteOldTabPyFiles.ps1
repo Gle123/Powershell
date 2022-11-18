@@ -1,6 +1,6 @@
 #script that deletes tabpy logs
 $dateSaveRange = (Get-Date).AddDays(-10)            #10 days
-$transferDirectory = "\\vuhl\bu\Tableau\Tabpy Logs"
+$transferDirectory = "\\fake\directory\here"
 
 #deletes files older than x days
 ECHO ".....DELETING OLD LOGS....."
